@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="2dfec0b90e0c4ff592e55fd6932a729b" Name="Diagram1">
+        <EntityTypeShape EntityType="WSRModel.Category_tovarov" Width="1.5" PointX="0.75" PointY="4" IsExpanded="true" />
+        <EntityTypeShape EntityType="WSRModel.Dolzhnost" Width="1.5" PointX="1.5" PointY="16" IsExpanded="true" />
+        <EntityTypeShape EntityType="WSRModel.Inventarizacia" Width="1.5" PointX="3" PointY="11.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="WSRModel.Invetarizacia_Tovar" Width="1.5" PointX="5.25" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="WSRModel.Postavki" Width="1.5" PointX="3" PointY="7.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="WSRModel.Postavki_Tovar" Width="1.5" PointX="5.25" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="WSRModel.Postavshik" Width="1.5" PointX="0.75" PointY="7.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="WSRModel.Sotrudnik" Width="1.5" PointX="0.75" PointY="11.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="WSRModel.Tovar" Width="1.5" PointX="3" PointY="3.5" IsExpanded="true" />
+        <AssociationConnector Association="WSRModel.FK_Tovar_Category_tovarov" ManuallyRouted="false" />
+        <AssociationConnector Association="WSRModel.FK_Sotrudnik_Dolzhnost" ManuallyRouted="false" />
+        <AssociationConnector Association="WSRModel.FK_Inventarizacia_Sotrudnik1" ManuallyRouted="false" />
+        <AssociationConnector Association="WSRModel.FK_Invetarizacia_Tovar_Inventarizacia" ManuallyRouted="false" />
+        <AssociationConnector Association="WSRModel.FK_Invetarizacia_Tovar_Tovar" ManuallyRouted="false" />
+        <AssociationConnector Association="WSRModel.FK_Postavki_Postavshik" ManuallyRouted="false" />
+        <AssociationConnector Association="WSRModel.FK_Postavki_Tovar_Postavki" ManuallyRouted="false" />
+        <AssociationConnector Association="WSRModel.FK_Postavki_Tovar_Tovar" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

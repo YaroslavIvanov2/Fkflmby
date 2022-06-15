@@ -1,0 +1,241 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="WSRModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Category_tovarov">
+    <Key>
+      <PropertyRef Name="ID_Category" />
+    </Key>
+    <Property Name="ID_Category" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Naimenovanie" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Tovar" Relationship="Self.FK_Tovar_Category_tovarov" FromRole="Category_tovarov" ToRole="Tovar" />
+  </EntityType>
+  <EntityType Name="Dolzhnost">
+    <Key>
+      <PropertyRef Name="ID_Dolzhnosti" />
+    </Key>
+    <Property Name="ID_Dolzhnosti" Type="Int32" Nullable="false" />
+    <Property Name="Dolzhnost1" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Sotrudnik" Relationship="Self.FK_Sotrudnik_Dolzhnost" FromRole="Dolzhnost" ToRole="Sotrudnik" />
+  </EntityType>
+  <EntityType Name="Inventarizacia">
+    <Key>
+      <PropertyRef Name="ID_Inventarizacii" />
+    </Key>
+    <Property Name="ID_Inventarizacii" Type="Int32" Nullable="false" />
+    <Property Name="Date" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="ID_Sotrudnika" Type="Int32" />
+    <NavigationProperty Name="Sotrudnik" Relationship="Self.FK_Inventarizacia_Sotrudnik1" FromRole="Inventarizacia" ToRole="Sotrudnik" />
+    <NavigationProperty Name="Invetarizacia_Tovar" Relationship="Self.FK_Invetarizacia_Tovar_Inventarizacia" FromRole="Inventarizacia" ToRole="Invetarizacia_Tovar" />
+  </EntityType>
+  <EntityType Name="Invetarizacia_Tovar">
+    <Key>
+      <PropertyRef Name="ID_Inventarizacii" />
+      <PropertyRef Name="ID_Tovar" />
+    </Key>
+    <Property Name="ID_Inventarizacii" Type="Int32" Nullable="false" />
+    <Property Name="ID_Tovar" Type="Int32" Nullable="false" />
+    <Property Name="Amount" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Inventarizacia" Relationship="Self.FK_Invetarizacia_Tovar_Inventarizacia" FromRole="Invetarizacia_Tovar" ToRole="Inventarizacia" />
+    <NavigationProperty Name="Tovar" Relationship="Self.FK_Invetarizacia_Tovar_Tovar" FromRole="Invetarizacia_Tovar" ToRole="Tovar" />
+  </EntityType>
+  <EntityType Name="Postavki">
+    <Key>
+      <PropertyRef Name="ID_Postavki" />
+    </Key>
+    <Property Name="ID_Postavki" Type="Int32" Nullable="false" />
+    <Property Name="Date_postavki" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="ID_Postavshika" Type="Int32" />
+    <NavigationProperty Name="Postavshik" Relationship="Self.FK_Postavki_Postavshik" FromRole="Postavki" ToRole="Postavshik" />
+    <NavigationProperty Name="Postavki_Tovar" Relationship="Self.FK_Postavki_Tovar_Postavki" FromRole="Postavki" ToRole="Postavki_Tovar" />
+  </EntityType>
+  <EntityType Name="Postavki_Tovar">
+    <Key>
+      <PropertyRef Name="ID_Postavki" />
+      <PropertyRef Name="ID_Tovata" />
+    </Key>
+    <Property Name="ID_Postavki" Type="Int32" Nullable="false" />
+    <Property Name="ID_Tovata" Type="Int32" Nullable="false" />
+    <Property Name="Amount" Type="String" />
+    <NavigationProperty Name="Postavki" Relationship="Self.FK_Postavki_Tovar_Postavki" FromRole="Postavki_Tovar" ToRole="Postavki" />
+    <NavigationProperty Name="Tovar" Relationship="Self.FK_Postavki_Tovar_Tovar" FromRole="Postavki_Tovar" ToRole="Tovar" />
+  </EntityType>
+  <EntityType Name="Postavshik">
+    <Key>
+      <PropertyRef Name="ID_Postavshika" />
+    </Key>
+    <Property Name="ID_Postavshika" Type="Int32" Nullable="false" />
+    <Property Name="Contact_data" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Name_postavshika" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Postavki" Relationship="Self.FK_Postavki_Postavshik" FromRole="Postavshik" ToRole="Postavki" />
+  </EntityType>
+  <EntityType Name="Sotrudnik">
+    <Key>
+      <PropertyRef Name="ID_Sotrudnika" />
+    </Key>
+    <Property Name="ID_Sotrudnika" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Surname" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Patronymic" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Contact_data" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="image" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ID_Dolzhnosti" Type="Int32" />
+    <Property Name="Login" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Password" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Dolzhnost" Relationship="Self.FK_Sotrudnik_Dolzhnost" FromRole="Sotrudnik" ToRole="Dolzhnost" />
+    <NavigationProperty Name="Inventarizacia" Relationship="Self.FK_Inventarizacia_Sotrudnik1" FromRole="Sotrudnik" ToRole="Inventarizacia" />
+  </EntityType>
+  <EntityType Name="Tovar">
+    <Key>
+      <PropertyRef Name="ID_Tovar" />
+    </Key>
+    <Property Name="ID_Tovar" Type="Int32" Nullable="false" />
+    <Property Name="Naimenovanie_tovara" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ID_Category" Type="Int32" />
+    <Property Name="Srok_godnosti" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="Category_tovarov" Relationship="Self.FK_Tovar_Category_tovarov" FromRole="Tovar" ToRole="Category_tovarov" />
+    <NavigationProperty Name="Invetarizacia_Tovar" Relationship="Self.FK_Invetarizacia_Tovar_Tovar" FromRole="Tovar" ToRole="Invetarizacia_Tovar" />
+    <NavigationProperty Name="Postavki_Tovar" Relationship="Self.FK_Postavki_Tovar_Tovar" FromRole="Tovar" ToRole="Postavki_Tovar" />
+  </EntityType>
+  <Association Name="FK_Tovar_Category_tovarov">
+    <End Role="Category_tovarov" Type="Self.Category_tovarov" Multiplicity="0..1" />
+    <End Role="Tovar" Type="Self.Tovar" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Category_tovarov">
+        <PropertyRef Name="ID_Category" />
+      </Principal>
+      <Dependent Role="Tovar">
+        <PropertyRef Name="ID_Category" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Sotrudnik_Dolzhnost">
+    <End Role="Dolzhnost" Type="Self.Dolzhnost" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Sotrudnik" Type="Self.Sotrudnik" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Dolzhnost">
+        <PropertyRef Name="ID_Dolzhnosti" />
+      </Principal>
+      <Dependent Role="Sotrudnik">
+        <PropertyRef Name="ID_Dolzhnosti" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Inventarizacia_Sotrudnik1">
+    <End Role="Sotrudnik" Type="Self.Sotrudnik" Multiplicity="0..1" />
+    <End Role="Inventarizacia" Type="Self.Inventarizacia" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Sotrudnik">
+        <PropertyRef Name="ID_Sotrudnika" />
+      </Principal>
+      <Dependent Role="Inventarizacia">
+        <PropertyRef Name="ID_Sotrudnika" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Invetarizacia_Tovar_Inventarizacia">
+    <End Role="Inventarizacia" Type="Self.Inventarizacia" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Invetarizacia_Tovar" Type="Self.Invetarizacia_Tovar" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Inventarizacia">
+        <PropertyRef Name="ID_Inventarizacii" />
+      </Principal>
+      <Dependent Role="Invetarizacia_Tovar">
+        <PropertyRef Name="ID_Inventarizacii" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Invetarizacia_Tovar_Tovar">
+    <End Role="Tovar" Type="Self.Tovar" Multiplicity="1" />
+    <End Role="Invetarizacia_Tovar" Type="Self.Invetarizacia_Tovar" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Tovar">
+        <PropertyRef Name="ID_Tovar" />
+      </Principal>
+      <Dependent Role="Invetarizacia_Tovar">
+        <PropertyRef Name="ID_Tovar" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Postavki_Postavshik">
+    <End Role="Postavshik" Type="Self.Postavshik" Multiplicity="0..1" />
+    <End Role="Postavki" Type="Self.Postavki" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Postavshik">
+        <PropertyRef Name="ID_Postavshika" />
+      </Principal>
+      <Dependent Role="Postavki">
+        <PropertyRef Name="ID_Postavshika" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Postavki_Tovar_Postavki">
+    <End Role="Postavki" Type="Self.Postavki" Multiplicity="1" />
+    <End Role="Postavki_Tovar" Type="Self.Postavki_Tovar" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Postavki">
+        <PropertyRef Name="ID_Postavki" />
+      </Principal>
+      <Dependent Role="Postavki_Tovar">
+        <PropertyRef Name="ID_Postavki" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Postavki_Tovar_Tovar">
+    <End Role="Tovar" Type="Self.Tovar" Multiplicity="1" />
+    <End Role="Postavki_Tovar" Type="Self.Postavki_Tovar" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Tovar">
+        <PropertyRef Name="ID_Tovar" />
+      </Principal>
+      <Dependent Role="Postavki_Tovar">
+        <PropertyRef Name="ID_Tovata" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="WSREntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Category_tovarov" EntityType="Self.Category_tovarov" />
+    <EntitySet Name="Dolzhnost" EntityType="Self.Dolzhnost" />
+    <EntitySet Name="Inventarizacia" EntityType="Self.Inventarizacia" />
+    <EntitySet Name="Invetarizacia_Tovar" EntityType="Self.Invetarizacia_Tovar" />
+    <EntitySet Name="Postavki" EntityType="Self.Postavki" />
+    <EntitySet Name="Postavki_Tovar" EntityType="Self.Postavki_Tovar" />
+    <EntitySet Name="Postavshik" EntityType="Self.Postavshik" />
+    <EntitySet Name="Sotrudnik" EntityType="Self.Sotrudnik" />
+    <EntitySet Name="Tovar" EntityType="Self.Tovar" />
+    <AssociationSet Name="FK_Tovar_Category_tovarov" Association="Self.FK_Tovar_Category_tovarov">
+      <End Role="Category_tovarov" EntitySet="Category_tovarov" />
+      <End Role="Tovar" EntitySet="Tovar" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Sotrudnik_Dolzhnost" Association="Self.FK_Sotrudnik_Dolzhnost">
+      <End Role="Dolzhnost" EntitySet="Dolzhnost" />
+      <End Role="Sotrudnik" EntitySet="Sotrudnik" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Inventarizacia_Sotrudnik1" Association="Self.FK_Inventarizacia_Sotrudnik1">
+      <End Role="Sotrudnik" EntitySet="Sotrudnik" />
+      <End Role="Inventarizacia" EntitySet="Inventarizacia" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Invetarizacia_Tovar_Inventarizacia" Association="Self.FK_Invetarizacia_Tovar_Inventarizacia">
+      <End Role="Inventarizacia" EntitySet="Inventarizacia" />
+      <End Role="Invetarizacia_Tovar" EntitySet="Invetarizacia_Tovar" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Invetarizacia_Tovar_Tovar" Association="Self.FK_Invetarizacia_Tovar_Tovar">
+      <End Role="Tovar" EntitySet="Tovar" />
+      <End Role="Invetarizacia_Tovar" EntitySet="Invetarizacia_Tovar" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Postavki_Postavshik" Association="Self.FK_Postavki_Postavshik">
+      <End Role="Postavshik" EntitySet="Postavshik" />
+      <End Role="Postavki" EntitySet="Postavki" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Postavki_Tovar_Postavki" Association="Self.FK_Postavki_Tovar_Postavki">
+      <End Role="Postavki" EntitySet="Postavki" />
+      <End Role="Postavki_Tovar" EntitySet="Postavki_Tovar" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Postavki_Tovar_Tovar" Association="Self.FK_Postavki_Tovar_Tovar">
+      <End Role="Tovar" EntitySet="Tovar" />
+      <End Role="Postavki_Tovar" EntitySet="Postavki_Tovar" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

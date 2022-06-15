@@ -1,0 +1,91 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="Хранилище WSRModelContainer" CdmEntityContainer="WSREntities">
+    <EntitySetMapping Name="Category_tovarov">
+      <EntityTypeMapping TypeName="WSRModel.Category_tovarov">
+        <MappingFragment StoreEntitySet="Category_tovarov">
+          <ScalarProperty Name="ID_Category" ColumnName="ID_Category" />
+          <ScalarProperty Name="Naimenovanie" ColumnName="Naimenovanie" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Dolzhnost">
+      <EntityTypeMapping TypeName="WSRModel.Dolzhnost">
+        <MappingFragment StoreEntitySet="Dolzhnost">
+          <ScalarProperty Name="ID_Dolzhnosti" ColumnName="ID_Dolzhnosti" />
+          <ScalarProperty Name="Dolzhnost1" ColumnName="Dolzhnost" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Inventarizacia">
+      <EntityTypeMapping TypeName="WSRModel.Inventarizacia">
+        <MappingFragment StoreEntitySet="Inventarizacia">
+          <ScalarProperty Name="ID_Inventarizacii" ColumnName="ID_Inventarizacii" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="ID_Sotrudnika" ColumnName="ID_Sotrudnika" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Invetarizacia_Tovar">
+      <EntityTypeMapping TypeName="WSRModel.Invetarizacia_Tovar">
+        <MappingFragment StoreEntitySet="Invetarizacia_Tovar">
+          <ScalarProperty Name="ID_Inventarizacii" ColumnName="ID_Inventarizacii" />
+          <ScalarProperty Name="ID_Tovar" ColumnName="ID_Tovar" />
+          <ScalarProperty Name="Amount" ColumnName="Amount" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Postavki">
+      <EntityTypeMapping TypeName="WSRModel.Postavki">
+        <MappingFragment StoreEntitySet="Postavki">
+          <ScalarProperty Name="ID_Postavki" ColumnName="ID_Postavki" />
+          <ScalarProperty Name="Date_postavki" ColumnName="Date_postavki" />
+          <ScalarProperty Name="ID_Postavshika" ColumnName="ID_Postavshika" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Postavki_Tovar">
+      <EntityTypeMapping TypeName="WSRModel.Postavki_Tovar">
+        <MappingFragment StoreEntitySet="Postavki_Tovar">
+          <ScalarProperty Name="ID_Postavki" ColumnName="ID_Postavki" />
+          <ScalarProperty Name="ID_Tovata" ColumnName="ID_Tovata" />
+          <ScalarProperty Name="Amount" ColumnName="Amount" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Postavshik">
+      <EntityTypeMapping TypeName="WSRModel.Postavshik">
+        <MappingFragment StoreEntitySet="Postavshik">
+          <ScalarProperty Name="ID_Postavshika" ColumnName="ID_Postavshika" />
+          <ScalarProperty Name="Contact_data" ColumnName="Contact_data" />
+          <ScalarProperty Name="Name_postavshika" ColumnName="Name_postavshika" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Sotrudnik">
+      <EntityTypeMapping TypeName="WSRModel.Sotrudnik">
+        <MappingFragment StoreEntitySet="Sotrudnik">
+          <ScalarProperty Name="ID_Sotrudnika" ColumnName="ID_Sotrudnika" />
+          <ScalarProperty Name="Surname" ColumnName="Surname" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Patronymic" ColumnName="Patronymic" />
+          <ScalarProperty Name="Contact_data" ColumnName="Contact_data" />
+          <ScalarProperty Name="image" ColumnName="image" />
+          <ScalarProperty Name="ID_Dolzhnosti" ColumnName="ID_Dolzhnosti" />
+          <ScalarProperty Name="Login" ColumnName="Login" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Tovar">
+      <EntityTypeMapping TypeName="WSRModel.Tovar">
+        <MappingFragment StoreEntitySet="Tovar">
+          <ScalarProperty Name="ID_Tovar" ColumnName="ID_Tovar" />
+          <ScalarProperty Name="Naimenovanie_tovara" ColumnName="Naimenovanie_tovara" />
+          <ScalarProperty Name="ID_Category" ColumnName="ID_Category" />
+          <ScalarProperty Name="Srok_godnosti" ColumnName="Srok_godnosti" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

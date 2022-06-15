@@ -1,0 +1,22 @@
+﻿<Window x:Class="Diplom_AladinSclad.Pages.mainWindowTovar.WindowAddTovar"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Diplom_AladinSclad.Pages.mainWindowTovar"
+        mc:Ignorable="d"
+        Title="FoodShef" Height="450" Width="299">
+    <Grid>
+        <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="Товар" VerticalAlignment="Top" Margin="127,54,0,0"/>
+        <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="Срок годности" VerticalAlignment="Top" Margin="10,257,0,0"/>
+        <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="Категория товара" VerticalAlignment="Top" Margin="10,206,0,0"/>
+        <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="Наименование товара" VerticalAlignment="Top" Margin="10,159,0,0"/>
+        <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="Номер товара" VerticalAlignment="Top" Margin="12,109,0,0" RenderTransformOrigin="0.577,-1.562"/>
+        <TextBox x:Name="NumberBOx" Text="{Binding ID_Tovar}" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" VerticalAlignment="Top" Width="260" Margin="10,130,0,0"/>
+        <TextBox x:Name="NameBox" Text="{Binding Naimenovanie_tovara}" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap"  VerticalAlignment="Top" Width="258" Margin="12,180,0,0"/>
+        <ComboBox x:Name="categoriaTovarBox" DisplayMemberPath="Naimenovanie" SelectedItem="{Binding Category_tovarov}" HorizontalAlignment="Left" VerticalAlignment="Top" Width="260" Margin="10,230,0,0"/>
+        <DatePicker x:Name="dateBox" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,278,0,0" Width="260" Height="42"/>
+        <Button x:Name="AddTovar" Click="AddTovar_Click" Content="Добавить" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="80,345,0,0"/>
+
+    </Grid>
+</Window>
